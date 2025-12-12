@@ -1,0 +1,7 @@
+{
+  "name": "Creastilo AI Xperience",
+  "description": "A futuristic AI solutions platform featuring Gemini integration, interactive tools, and a mesmerizing UI.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

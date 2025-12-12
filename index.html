@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Creastilo AI Xperience - Transformamos Tráfico en Leads con IA</title>
+    <meta name="title" content="Creastilo AI Xperience - Transformamos Tráfico en Leads con IA" />
+    <meta name="description" content="Plataforma de IA que convierte visitantes en leads calificados mediante ruletas gamificadas, CRM inteligente y agentes autónomos powered by Gemini. Aumenta tu conversión hasta 40%." />
+    <meta name="keywords" content="AI, Inteligencia Artificial, Lead Generation, CRM, Gamification, Gemini AI, Marketing Automation, Ruleta de premios, Captación de leads" />
+    <meta name="author" content="Creastilo" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://creastilo.com/" />
+    <meta property="og:title" content="Creastilo AI Xperience - Transformamos Tráfico en Leads con IA" />
+    <meta property="og:description" content="Plataforma de IA que convierte visitantes en leads calificados mediante ruletas gamificadas, CRM inteligente y agentes autónomos powered by Gemini." />
+    <meta property="og:image" content="https://creastilo.com/og-image.png" />
+    <meta property="og:site_name" content="Creastilo AI Xperience" />
+    <meta property="og:locale" content="es_MX" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://creastilo.com/" />
+    <meta property="twitter:title" content="Creastilo AI Xperience - Transformamos Tráfico en Leads con IA" />
+    <meta property="twitter:description" content="Aumenta tu conversión hasta 40% con ruletas gamificadas, CRM inteligente y agentes autónomos powered by Gemini AI." />
+    <meta property="twitter:image" content="https://creastilo.com/twitter-image.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#030014" />
+    <meta name="msapplication-TileColor" content="#030014" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    >
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Space Grotesk", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
+            },
+            colors: {
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              primary: {
+                DEFAULT: "hsl(var(--primary))",
+                foreground: "hsl(var(--primary-foreground))",
+              },
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+              popover: {
+                DEFAULT: "hsl(var(--popover))",
+                foreground: "hsl(var(--popover-foreground))",
+              },
+              card: {
+                DEFAULT: "hsl(var(--card))",
+                foreground: "hsl(var(--card-foreground))",
+              },
+              cyan: {
+                400: "#40d4f7",
+                500: "#06b6d4",
+              },
+              purple: {
+                500: "#8b5cf6",
+                600: "#7c3aed",
+              },
+              pink: {
+                500: "#ec4899",
+              },
+            },
+            animation: {
+              "spin-slow": "spin 12s linear infinite",
+              "pulse-slow":
+                "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              "float": "float 6s ease-in-out infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 212.7 26.8% 83.9%;
+      }
+      body {
+        background-color: #030014;
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+      .gradient-text {
+        background: linear-gradient(to right, #40d4f7, #a855f7, #ec4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .neon-glow {
+        box-shadow: 0 0 20px rgba(64, 212, 247, 0.3);
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #444;
+      }
+    </style>
+
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
