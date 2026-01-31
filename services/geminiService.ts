@@ -244,81 +244,14 @@ class GeminiService {
         source.connect(this.audioContext.destination);
         source.start();
 
-     } catch (error) {
-         console.warn('Backend TTS failed, trying client-side fallback...');
-         
-         // Fallback: Client-side Gemini Call via REST API
-         try {
-             const apiKey = process.env.GEMINI_API_KEY;
-             if (!apiKey) throw new Error('No client-side API key available');
-             
-             // Using the dedicated TTS preview model which we know the backend uses
-             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
-             
-             const fetchResponse = await fetch(url, {
-                 method: 'POST',
-                 headers: { 'Content-Type': 'application/json' },
-                 body: JSON.stringify({
-                     contents: { parts: [{ text: text }] },
-                     // Note: For some preview models, speechConfig might need to be at root or specific place.
-                     // But based on SDK, it maps config -> generationConfig.
-                     generationConfig: {
-                         responseModalities: ["AUDIO"],
-                         speechConfig: {
-                             voiceConfig: {
-                                 prebuiltVoiceConfig: { voiceName: voiceName || 'Kore' }
-                             }
-                         }
-                     }
-                 })
-             });
-
-             if (!fetchResponse.ok) {
-                 const errText = await fetchResponse.text();
-                 throw new Error(`Gemini API Error: ${fetchResponse.status} ${errText}`);
-             }
-
-             const data = await fetchResponse.json();
-             const audioData = data.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-             
-             if (audioData) {
-                  // Reuse the playback logic
-                  if (!this.audioContext) return;
-        
-                  const binaryString = atob(audioData);
-                  const len = binaryString.length;
-                  const bytes = new Uint8Array(len);
-                  for (let i = 0; i < len; i++) {
-                      bytes[i] = binaryString.charCodeAt(i);
-                  }
-        
-                  const dataInt16 = new Int16Array(bytes.buffer);
-                  const frameCount = dataInt16.length;
-                  const audioBuffer = this.audioContext.createBuffer(1, frameCount, 24000);
-                  const channelData = audioBuffer.getChannelData(0);
-            
-                  for (let i = 0; i < frameCount; i++) {
-                        channelData[i] = dataInt16[i] / 32768.0;
-                  }
-            
-                  const source = this.audioContext.createBufferSource();
-                  source.buffer = audioBuffer;
-                  source.connect(this.audioContext.destination);
-                  source.start();
-                  return;
-             }
-             
-             throw new Error('No audio data in GEMINI response');
-
-         } catch (fallbackError: any) {
-             console.error('Fallback TTS failed:', fallbackError);
-             window.dispatchEvent(new CustomEvent('show-toast', {
-                 detail: { type: 'warning', message: 'Fallo Gen-IA voz: ' + fallbackError.message }
-             }));
-             // Fallback to browser TTS (Last Resort)
-             this.speak(text);
-         }
-     }
+      } catch (error) {
+         console.error('Backend TTS failed:', error);
+         window.dispatchEvent(new CustomEvent('show-toast', {
+             detail: { type: 'error', message: 'Fallo Gen-IA voz: ' + (error as Error).message }
+         }));
+         // Fallback to browser TTS (Last Resort)
+         this.speak(text);
+      }
   }
 
   public speak(text: string): void {
